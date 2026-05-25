@@ -5,6 +5,8 @@
   gather_facts: false
 
   vars:
+      aws_access_key: ${{ secrets.aws-access-key }}
+      aws_secret_key: ${{ secrets.aws-secret-key }}
       aws_region: ap-south-1
 
   tasks:
