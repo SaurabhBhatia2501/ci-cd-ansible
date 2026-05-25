@@ -5,8 +5,8 @@
   gather_facts: false
 
   vars:
-      aws_access_key: ${{ secrets.aws-access-key }}
-      aws_secret_key: ${{ secrets.aws-secret-key }}
+      aws_access_key: ${{ secrets.AWS-ACCESS-KEY }}
+      aws_secret_key: ${{ secrets.AWS-SECRET-KEY }}
       aws_region: ap-south-1
 
   tasks:
@@ -15,7 +15,7 @@
         region: "{{ aws_region }}"
         name: my-ubuntu-server
         instance_type: t3.micro
-        image_id: ami-0fc5d935ebf8bc3bc   
+        image_id: ami-07a00cf47dbbc844c   
         state: running
         wait: true
       register: ec2
