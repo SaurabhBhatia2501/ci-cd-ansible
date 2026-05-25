@@ -18,6 +18,15 @@ jobs:
           pip install boto3 botocore
           ansible-galaxy collection install amazon.aws
 
+      - name: Verify AWS
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          AWS_DEFAULT_REGION: ap-south-1
+        run: |
+          aws sts get-caller-identity
+          aws ec2 describe-vpcs --region ap-south-1 
+
       - name: Run Ansible Playbook
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
